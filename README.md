@@ -18,8 +18,6 @@ My work focuses on the core AWS Solutions Architect Associate areas: security, r
 This portfolio documents what I’ve built so far
 
 
-22:32
-
 ## Featured AWS projects
 
 ### 1. [Highly Available AWS Web Architecture](https://github.com/Agu-nwa/-aws-ha-arch)
