@@ -14,9 +14,11 @@ I design secure, resilient, and cost-aware cloud systems on AWS
 
 ## About me
 
-I am building hands-on expertise aligned with the **AWS Certified Solutions Architect – Associate** domain: designing secure, resilient, high-performing, and cost-optimized architectures.
+My work focuses on the core AWS Solutions Architect Associate areas: security, reliability, performance, and cost.
+This portfolio documents what I’ve built, the decisions I made, and what I learned along the way.
 
-My portfolio turns AWS concepts into reviewable engineering work. Each project focuses on clear requirements, architecture decisions, implementation evidence, security boundaries, and opportunities for improvement.
+
+22:32
 
 ## Featured AWS projects
 
