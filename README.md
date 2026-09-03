@@ -15,7 +15,7 @@ I design secure, resilient, and cost-aware cloud systems on AWS
 ## About me
 
 My work focuses on the core AWS Solutions Architect Associate areas: security, reliability, performance, and cost.
-This portfolio documents what I’ve built, the decisions I made, and what I learned along the way.
+This portfolio documents what I’ve built so far
 
 
 22:32
