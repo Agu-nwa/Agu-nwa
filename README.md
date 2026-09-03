@@ -4,7 +4,7 @@
 
 ### AWS Cloud & Solutions Architecture Portfolio
 
-I design secure, resilient, and cost-aware cloud systems on AWS—then document the architecture, trade-offs, and operational decisions behind them.
+I design secure, resilient, and cost-aware cloud systems on AWS
 
 [![AWS](https://img.shields.io/badge/AWS-Cloud%20Architecture-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white)](https://aws.amazon.com/)
 [![Linux](https://img.shields.io/badge/Linux-Administration-FCC624?style=for-the-badge&logo=linux&logoColor=111111)](https://github.com/Agu-nwa/Server-Discovery-and-Baseline-Assessment)
