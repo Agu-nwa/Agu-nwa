@@ -4,81 +4,71 @@
 
 ### AWS Cloud & Solutions Architecture Portfolio
 
-I design secure, resilient, and cost-aware cloud systems on AWS
+I'm learning how to build secure, reliable, and cost-aware systems on AWS.
 
 [![AWS](https://img.shields.io/badge/AWS-Cloud%20Architecture-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white)](https://aws.amazon.com/)
 [![Linux](https://img.shields.io/badge/Linux-Administration-FCC624?style=for-the-badge&logo=linux&logoColor=111111)](https://github.com/Agu-nwa/Server-Discovery-and-Baseline-Assessment)
-[![GitHub](https://img.shields.io/badge/GitHub-Project%20Documentation-181717?style=for-the-badge&logo=github)](https://github.com/Agu-nwa?tab=repositories)
+[![GitHub](https://img.shields.io/badge/GitHub-My%20Projects-181717?style=for-the-badge&logo=github)](https://github.com/Agu-nwa?tab=repositories)
 
 </div>
 
 ## About me
 
-My work focuses on the core AWS Solutions Architect Associate areas: security, reliability, performance, and cost.
-This portfolio documents what I’ve built so far
+I'm building practical AWS experience by working on projects and documenting what I learn. My main focus is on the AWS Solutions Architect Associate areas: security, reliability, performance, and cost.
 
+This profile is where I keep track of what I've built so far, the services I've used, and the things I'm still working on.
 
-## Featured AWS projects
+## AWS projects
 
 ### 1. [Highly Available AWS Web Architecture](https://github.com/Agu-nwa/-aws-ha-arch)
 
-A multi–Availability Zone web architecture designed to remove single points of failure and scale with demand.
+I designed a web architecture that runs across two Availability Zones so it can handle failures and changes in traffic.
 
-- **Services:** Amazon VPC, EC2, Application Load Balancer, Auto Scaling, RDS, S3, IAM
-- **Focus:** high availability, horizontal scaling, network segmentation, managed data services
-- **Architecture decisions:** traffic distribution across Availability Zones, elastic compute capacity, and least-privilege access controls
+- **AWS services:** VPC, EC2, Application Load Balancer, Auto Scaling, RDS, S3, and IAM
+- **What I worked on:** availability, scaling, network separation, and access control
 
 ### 2. [AWS EC2 + Nginx Web Server](https://github.com/Agu-nwa/AWS-Personal-Project)
 
-A practical deployment of an Nginx web server on an Ubuntu EC2 instance.
+I launched an Ubuntu EC2 instance, connected to it through SSH, installed Nginx, and used it to host a web page.
 
-- **Services:** Amazon EC2, Security Groups
-- **Focus:** instance provisioning, secure remote administration, HTTP access, Linux service configuration
-- **Outcome:** a working web workload deployed and served from AWS
+- **AWS services:** EC2 and Security Groups
+- **What I worked on:** instance setup, SSH access, HTTP rules, and basic Linux server management
 
 ### 3. [Server Discovery & Baseline Assessment](https://github.com/Agu-nwa/Server-Discovery-and-Baseline-Assessment)
 
-A documented baseline assessment of an Ubuntu server running on Amazon EC2.
+I documented how to check the condition of an Ubuntu server before making changes to it.
 
-- **Skills:** SSH, Linux administration, storage and memory inspection, logs, processes, packages
-- **Focus:** understanding system state before configuration, migration, or hardening
-- **Outcome:** a repeatable infrastructure discovery checklist with captured evidence
+- **Skills used:** SSH, Linux commands, storage and memory checks, packages, processes, and logs
+- **What I learned:** how to collect a useful server baseline and understand what is already running
 
-## Architecture toolkit
+## Skills and tools
 
-| Area | Technologies and practices |
+| Area | What I've worked with |
 |---|---|
-| Compute | Amazon EC2, Auto Scaling, Linux, Nginx |
-| Networking | Amazon VPC, public/private subnet design, routing, Security Groups, load balancing |
-| Storage & data | Amazon S3, Amazon RDS, EBS concepts |
-| Security | IAM, least privilege, network segmentation, secure SSH access |
-| Reliability | Multi-AZ design, health checks, fault isolation, elasticity |
-| Operations | Server discovery, baseline assessment, logs, monitoring fundamentals |
-| Documentation | Architecture diagrams, implementation notes, decision records, validation evidence |
+| Compute | EC2, Auto Scaling, Linux, Nginx |
+| Networking | VPC, subnets, routing, Security Groups, load balancing |
+| Storage and databases | S3, RDS, EBS concepts |
+| Security | IAM, least privilege, network separation, SSH access |
+| Reliability | Multi-AZ design, health checks, fault isolation, scaling |
+| Operations | Server checks, logs, monitoring basics, documentation |
 
-## How I approach architecture
+## How I work on a project
 
-1. **Clarify requirements** — availability, performance, security, recovery, and budget.
-2. **Design for failure** — isolate components and avoid single points of failure.
-3. **Secure every layer** — identity, network, compute, data, and operational access.
-4. **Prefer measurable decisions** — document assumptions, trade-offs, and validation steps.
-5. **Improve iteratively** — review against the AWS Well-Architected pillars.
+1. Start with the requirements and understand what the system needs to do.
+2. Look for possible points of failure and plan around them.
+3. Think about security at every layer, from IAM to the network and data.
+4. Write down the choices I make and why I made them.
+5. Review the project and note what I can improve next time.
 
-## Current focus
+## What I'm working on now
 
-- Deepening practical knowledge across the AWS SAA exam domains
-- Converting architecture diagrams into reproducible Infrastructure as Code
-- Adding monitoring, backup, recovery, and cost estimates to existing projects
-- Publishing concise project retrospectives and architecture trade-offs
+- Building more projects around the AWS SAA exam topics
+- Learning Infrastructure as Code
+- Adding monitoring, backups, recovery plans, and cost estimates to my projects
+- Improving my project documentation and architecture diagrams
 
 ## Let's connect
 
-I am open to cloud engineering opportunities, architecture discussions, and collaborative AWS projects.
+I'm open to cloud engineering opportunities, AWS projects, and conversations with other people learning or working in cloud.
 
-[![GitHub](https://img.shields.io/badge/View_all_projects-181717?style=flat-square&logo=github)](https://github.com/Agu-nwa?tab=repositories)
-
----
-
-<div align="center">
-<sub>Building cloud systems that are secure, resilient, observable, and intentional.</sub>
-</div>
+[View all my GitHub projects](https://github.com/Agu-nwa?tab=repositories)
