@@ -2,30 +2,34 @@
 
 # Charles Chukwunonso
 
-### AWS Cloud & Solutions Architecture Portfolio
+### AWS Cloud Engineer · Solutions Architecture · Linux
 
 I design and build secure, reliable, and cost-aware systems on AWS.
 
-[![AWS](https://img.shields.io/badge/AWS-Cloud%20Architecture-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white)](https://aws.amazon.com/)
-[![Linux](https://img.shields.io/badge/Linux-Administration-FCC624?style=for-the-badge&logo=linux&logoColor=111111)](https://github.com/Agu-nwa/Server-Discovery-and-Baseline-Assessment)
-[![GitHub](https://img.shields.io/badge/GitHub-My%20Projects-181717?style=for-the-badge&logo=github)](https://github.com/Agu-nwa?tab=repositories)
+[![Portfolio](https://img.shields.io/badge/Portfolio-View%20Website-FF9900?style=flat-square&logo=amazonwebservices&logoColor=white)](https://agu-nwa.github.io/Agu-nwa/)
+[![AWS Projects](https://img.shields.io/badge/AWS-View%20Projects-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white)](https://github.com/Agu-nwa?tab=repositories)
+[![GitHub](https://img.shields.io/badge/GitHub-Agu--nwa-181717?style=flat-square&logo=github)](https://github.com/Agu-nwa)
 
 </div>
 
-## About me
+## About
 
 I design and deploy AWS solutions with a focus on security, reliability, performance, and cost. My work covers cloud architecture, networking, Linux administration, and infrastructure operations.
 
-This portfolio shows the projects I've built, the AWS services I've used, and the decisions behind each solution.
+This portfolio shows what I've built, the services I've used, and the decisions behind each solution.
 
-## AWS projects
+## Featured projects
 
-### 1. [Highly Available AWS Web Architecture](https://github.com/Agu-nwa/-aws-ha-arch)
+### [Highly Available AWS Web Architecture](https://github.com/Agu-nwa/-aws-ha-arch)
 
-I designed a web architecture that runs across two Availability Zones so it can handle failures and changes in traffic.
+A highly available web architecture running across two Availability Zones, with elastic compute, managed PostgreSQL, and separate delivery paths for application and static traffic.
 
-- **AWS services:** VPC, EC2, Application Load Balancer, Auto Scaling, RDS, S3, and IAM
-- **What I worked on:** availability, scaling, network separation, and access control
+**Stack:** VPC · EC2 · ALB · Auto Scaling · RDS PostgreSQL · S3 · CloudFront · IAM<br>
+**Implemented:** Multi-AZ compute, health-based traffic distribution, EC2 replacement testing, RDS standby replication, and private S3 delivery through CloudFront<br>
+**Documentation:** [Architecture and traffic flow](https://github.com/Agu-nwa/-aws-ha-arch/blob/main/architecture/architecture.md) · [Design decisions](https://github.com/Agu-nwa/-aws-ha-arch/blob/main/architecture/decisions.md)
+
+<details>
+<summary><strong>View architecture diagram</strong></summary>
 
 ```mermaid
 flowchart TB
@@ -47,14 +51,19 @@ flowchart TB
     end
 ```
 
-[View the full architecture and traffic flow](https://github.com/Agu-nwa/-aws-ha-arch/blob/main/architecture/architecture.md)
+</details>
 
-### 2. [AWS EC2 + Nginx Web Server](https://github.com/Agu-nwa/AWS-Personal-Project)
+---
 
-I launched an Ubuntu EC2 instance, connected to it through SSH, installed Nginx, and used it to host a web page.
+### [EC2 + Nginx Web Server](https://github.com/Agu-nwa/AWS-Personal-Project)
 
-- **AWS services:** EC2 and Security Groups
-- **What I worked on:** instance setup, SSH access, HTTP rules, and basic Linux server management
+An Ubuntu web server deployed on Amazon EC2 and configured to serve a web page with Nginx.
+
+**Stack:** EC2 · Security Groups · Ubuntu · Nginx · SSH<br>
+**Implemented:** Instance provisioning, key-based remote access, HTTP access rules, Nginx installation, and web content deployment
+
+<details>
+<summary><strong>View deployment flow</strong></summary>
 
 ```mermaid
 flowchart LR
@@ -65,12 +74,19 @@ flowchart LR
     Nginx --> Page[Hosted Web Page]
 ```
 
-### 3. [Server Discovery & Baseline Assessment](https://github.com/Agu-nwa/Server-Discovery-and-Baseline-Assessment)
+</details>
 
-I documented how to check the condition of an Ubuntu server before making changes to it.
+---
 
-- **Skills used:** SSH, Linux commands, storage and memory checks, packages, processes, and logs
-- **Outcome:** a clear server baseline that shows the system's current state before changes are made
+### [Server Discovery & Baseline Assessment](https://github.com/Agu-nwa/Server-Discovery-and-Baseline-Assessment)
+
+A documented assessment of an Ubuntu EC2 server used to understand its current state before configuration, migration, or hardening work.
+
+**Stack:** EC2 · Ubuntu · SSH · Linux administration<br>
+**Assessed:** Identity, operating system, kernel, storage, memory, uptime, packages, filesystem, configuration, and logs
+
+<details>
+<summary><strong>View assessment flow</strong></summary>
 
 ```mermaid
 flowchart TB
@@ -87,34 +103,28 @@ flowchart TB
     Logs --> Report
 ```
 
-## Skills and tools
+</details>
 
-| Area | What I've worked with |
+## Technical skills
+
+| Area | Services and tools |
 |---|---|
-| Compute | EC2, Auto Scaling, Linux, Nginx |
-| Networking | VPC, subnets, routing, Security Groups, load balancing |
-| Storage and databases | S3, RDS, EBS concepts |
-| Security | IAM, least privilege, network separation, SSH access |
-| Reliability | Multi-AZ design, health checks, fault isolation, scaling |
-| Operations | Server checks, logs, monitoring basics, documentation |
+| Cloud architecture | AWS Well-Architected principles, high availability, scalability, fault isolation |
+| Compute | Amazon EC2, Auto Scaling, Linux, Nginx |
+| Networking | Amazon VPC, subnets, routing, Security Groups, Application Load Balancer |
+| Storage and data | Amazon S3, Amazon RDS, Amazon EBS |
+| Security | IAM, least privilege, network separation, key-based SSH access |
+| Operations | Health checks, server baselining, logs, monitoring fundamentals |
 
-## How I work on a project
+## Current work
 
-1. Start with the requirements and understand what the system needs to do.
-2. Look for possible points of failure and plan around them.
-3. Think about security at every layer, from IAM to the network and data.
-4. Write down the choices I make and why I made them.
-5. Review the project and note what I can improve next time.
+- Building AWS architectures across the Solutions Architect Associate domains
+- Turning architecture designs into repeatable Infrastructure as Code
+- Adding monitoring, backup, recovery, and cost estimates to existing projects
+- Improving technical documentation and architecture decision records
 
-## Current focus
-
-- Building more projects across the AWS SAA architecture domains
-- Using Infrastructure as Code to make deployments repeatable
-- Adding monitoring, backups, recovery plans, and cost estimates to my projects
-- Improving my project documentation and architecture diagrams
-
-## Let's connect
+## Contact
 
 I'm open to cloud engineering opportunities, AWS projects, and conversations with other people working in cloud.
 
-[View all my GitHub projects](https://github.com/Agu-nwa?tab=repositories)
+[Portfolio website](https://agu-nwa.github.io/Agu-nwa/) · [GitHub projects](https://github.com/Agu-nwa?tab=repositories)
