@@ -6,7 +6,7 @@
 
 I design and build secure, reliable, and cost-aware systems on AWS.
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-View%20Website-B8D8F8?style=flat-square&logo=amazonwebservices&logoColor=061A2B)](https://agu-nwa.github.io/Agu-nwa/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-View%20Website-FF9900?style=flat-square&logo=amazonwebservices&logoColor=white)](https://agu-nwa.github.io/Agu-nwa/)
 [![AWS Projects](https://img.shields.io/badge/AWS-View%20Projects-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white)](https://github.com/Agu-nwa?tab=repositories)
 [![GitHub](https://img.shields.io/badge/GitHub-Agu--nwa-181717?style=flat-square&logo=github)](https://github.com/Agu-nwa)
 
