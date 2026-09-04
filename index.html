@@ -100,6 +100,23 @@
               <ul class="tags" aria-label="Services used">
                 <li>VPC</li><li>EC2</li><li>ALB</li><li>Auto Scaling</li><li>RDS</li><li>S3</li><li>IAM</li>
               </ul>
+              <figure class="project-diagram">
+                <figcaption>Current architecture design</figcaption>
+                <pre class="mermaid">
+flowchart TB
+    Users([Users]) --> ALB[Application Load Balancer]
+    subgraph VPC[Amazon VPC]
+        ALB --> ASG[Auto Scaling Group]
+        ASG --> EC2A[EC2 - AZ A]
+        ASG --> EC2B[EC2 - AZ B]
+        EC2A --> RDS[(Amazon RDS)]
+        EC2B --> RDS
+        EC2A --> S3[(Amazon S3)]
+        EC2B --> S3
+    end
+    IAM[IAM and Security Groups] -. Access controls .-> VPC
+                </pre>
+              </figure>
             </div>
             <a class="text-link" href="https://github.com/Agu-nwa/-aws-ha-arch" target="_blank" rel="noreferrer" aria-label="View Highly Available AWS Web Architecture on GitHub">View case study <span aria-hidden="true">↗</span></a>
           </article>
@@ -111,6 +128,17 @@
               <h3>EC2 + Nginx Web Server</h3>
               <p>An Ubuntu EC2 deployment covering instance provisioning, secure remote administration, HTTP access, and Linux service configuration.</p>
               <ul class="tags" aria-label="Services used"><li>EC2</li><li>Security Groups</li><li>Linux</li><li>Nginx</li></ul>
+              <figure class="project-diagram">
+                <figcaption>Current deployment flow</figcaption>
+                <pre class="mermaid">
+flowchart TB
+    Visitor([Visitor]) -->|HTTP| SG[Security Group]
+    Admin([Administrator]) -->|SSH| SG
+    SG --> EC2[Ubuntu EC2]
+    EC2 --> Nginx[Nginx]
+    Nginx --> Page[Web Page]
+                </pre>
+              </figure>
             </div>
             <a class="text-link" href="https://github.com/Agu-nwa/AWS-Personal-Project" target="_blank" rel="noreferrer" aria-label="View EC2 and Nginx project on GitHub">View project <span aria-hidden="true">↗</span></a>
           </article>
@@ -122,6 +150,21 @@
               <h3>Server Discovery &amp; Baseline Assessment</h3>
               <p>A repeatable assessment of an Ubuntu server covering system state, storage, memory, packages, processes, and logs.</p>
               <ul class="tags" aria-label="Skills used"><li>SSH</li><li>Ubuntu</li><li>Monitoring</li><li>Documentation</li></ul>
+              <figure class="project-diagram">
+                <figcaption>Current assessment flow</figcaption>
+                <pre class="mermaid">
+flowchart TB
+    Admin([Administrator]) -->|SSH| EC2[Ubuntu EC2]
+    EC2 --> Identity[Identity and OS]
+    EC2 --> Resources[Disk and Memory]
+    EC2 --> System[Kernel and Packages]
+    EC2 --> Logs[Logs and Filesystem]
+    Identity --> Report[Baseline Summary]
+    Resources --> Report
+    System --> Report
+    Logs --> Report
+                </pre>
+              </figure>
             </div>
             <a class="text-link" href="https://github.com/Agu-nwa/Server-Discovery-and-Baseline-Assessment" target="_blank" rel="noreferrer" aria-label="View Server Discovery project on GitHub">View project <span aria-hidden="true">↗</span></a>
           </article>
@@ -184,5 +227,28 @@
   <footer>
     <div class="container footer-inner"><p>© 2026 Charles Chukwunonso</p><p>Secure. Resilient. Intentional.</p></div>
   </footer>
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: "base",
+      securityLevel: "strict",
+      flowchart: { curve: "basis", htmlLabels: true },
+      themeVariables: {
+        background: "#0a111c",
+        primaryColor: "#131e2f",
+        primaryTextColor: "#f7f9fc",
+        primaryBorderColor: "#ff9900",
+        lineColor: "#7f8da2",
+        secondaryColor: "#182b49",
+        tertiaryColor: "#0e1624",
+        clusterBkg: "#0e1624",
+        clusterBorder: "#41526a",
+        edgeLabelBackground: "#0a111c",
+        fontFamily: "Inter, sans-serif"
+      }
+    });
+  </script>
 </body>
 </html>

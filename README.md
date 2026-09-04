@@ -27,6 +27,28 @@ I designed a web architecture that runs across two Availability Zones so it can 
 - **AWS services:** VPC, EC2, Application Load Balancer, Auto Scaling, RDS, S3, and IAM
 - **What I worked on:** availability, scaling, network separation, and access control
 
+```mermaid
+flowchart TB
+    Users([Users]) --> ALB[Application Load Balancer]
+    subgraph VPC[Amazon VPC]
+        direction TB
+        ALB --> ASG[Auto Scaling Group]
+        subgraph AZA[Availability Zone A]
+            EC2A[EC2 Application Server]
+        end
+        subgraph AZB[Availability Zone B]
+            EC2B[EC2 Application Server]
+        end
+        ASG --> EC2A
+        ASG --> EC2B
+        EC2A --> RDS[(Amazon RDS)]
+        EC2B --> RDS
+        EC2A --> S3[(Amazon S3)]
+        EC2B --> S3
+    end
+    IAM[IAM & Security Groups] -. controls access .-> VPC
+```
+
 ### 2. [AWS EC2 + Nginx Web Server](https://github.com/Agu-nwa/AWS-Personal-Project)
 
 I launched an Ubuntu EC2 instance, connected to it through SSH, installed Nginx, and used it to host a web page.
@@ -34,12 +56,36 @@ I launched an Ubuntu EC2 instance, connected to it through SSH, installed Nginx,
 - **AWS services:** EC2 and Security Groups
 - **What I worked on:** instance setup, SSH access, HTTP rules, and basic Linux server management
 
+```mermaid
+flowchart LR
+    Visitor([Website Visitor]) -->|HTTP| SG[Security Group]
+    Admin([Administrator]) -->|SSH| SG
+    SG --> EC2[Ubuntu EC2 Instance]
+    EC2 --> Nginx[Nginx Web Server]
+    Nginx --> Page[Hosted Web Page]
+```
+
 ### 3. [Server Discovery & Baseline Assessment](https://github.com/Agu-nwa/Server-Discovery-and-Baseline-Assessment)
 
 I documented how to check the condition of an Ubuntu server before making changes to it.
 
 - **Skills used:** SSH, Linux commands, storage and memory checks, packages, processes, and logs
 - **Outcome:** a clear server baseline that shows the system's current state before changes are made
+
+```mermaid
+flowchart TB
+    Admin([Administrator]) -->|SSH with key| EC2[Ubuntu Server on EC2]
+    EC2 --> Identity[User, hostname & OS]
+    EC2 --> Resources[Disk, memory & uptime]
+    EC2 --> System[Kernel, architecture & packages]
+    EC2 --> Files[Filesystem & configuration]
+    EC2 --> Logs[System log review]
+    Identity --> Report[Baseline Summary]
+    Resources --> Report
+    System --> Report
+    Files --> Report
+    Logs --> Report
+```
 
 ## Skills and tools
 
