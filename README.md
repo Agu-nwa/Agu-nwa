@@ -4,7 +4,7 @@
 
 ### AWS Cloud & Solutions Architecture Portfolio
 
-I'm learning how to build secure, reliable, and cost-aware systems on AWS.
+I design and build secure, reliable, and cost-aware systems on AWS.
 
 [![AWS](https://img.shields.io/badge/AWS-Cloud%20Architecture-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white)](https://aws.amazon.com/)
 [![Linux](https://img.shields.io/badge/Linux-Administration-FCC624?style=for-the-badge&logo=linux&logoColor=111111)](https://github.com/Agu-nwa/Server-Discovery-and-Baseline-Assessment)
@@ -14,9 +14,9 @@ I'm learning how to build secure, reliable, and cost-aware systems on AWS.
 
 ## About me
 
-I'm building practical AWS experience by working on projects and documenting what I learn. My main focus is on the AWS Solutions Architect Associate areas: security, reliability, performance, and cost.
+I design and deploy AWS solutions with a focus on security, reliability, performance, and cost. My work covers cloud architecture, networking, Linux administration, and infrastructure operations.
 
-This profile is where I keep track of what I've built so far, the services I've used, and the things I'm still working on.
+This portfolio shows the projects I've built, the AWS services I've used, and the decisions behind each solution.
 
 ## AWS projects
 
@@ -39,7 +39,7 @@ I launched an Ubuntu EC2 instance, connected to it through SSH, installed Nginx,
 I documented how to check the condition of an Ubuntu server before making changes to it.
 
 - **Skills used:** SSH, Linux commands, storage and memory checks, packages, processes, and logs
-- **What I learned:** how to collect a useful server baseline and understand what is already running
+- **Outcome:** a clear server baseline that shows the system's current state before changes are made
 
 ## Skills and tools
 
@@ -60,15 +60,15 @@ I documented how to check the condition of an Ubuntu server before making change
 4. Write down the choices I make and why I made them.
 5. Review the project and note what I can improve next time.
 
-## What I'm working on now
+## Current focus
 
-- Building more projects around the AWS SAA exam topics
-- Learning Infrastructure as Code
+- Building more projects across the AWS SAA architecture domains
+- Using Infrastructure as Code to make deployments repeatable
 - Adding monitoring, backups, recovery plans, and cost estimates to my projects
 - Improving my project documentation and architecture diagrams
 
 ## Let's connect
 
-I'm open to cloud engineering opportunities, AWS projects, and conversations with other people learning or working in cloud.
+I'm open to cloud engineering opportunities, AWS projects, and conversations with other people working in cloud.
 
 [View all my GitHub projects](https://github.com/Agu-nwa?tab=repositories)
