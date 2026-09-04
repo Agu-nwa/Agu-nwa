@@ -63,15 +63,24 @@ h3 { line-height: 1.25; letter-spacing: -.025em; }
 .architecture-card { padding: 28px; border: 1px solid #31445e; background: rgba(13,23,38,.88); box-shadow: 22px 22px 0 rgba(255,153,0,.07); }
 .card-topline { display: flex; justify-content: space-between; margin-bottom: 30px; color: #8190a7; font-size: .64rem; font-weight: 700; letter-spacing: .14em; }
 .architecture-title { margin-bottom: 22px; font-size: 1.25rem; line-height: 1.3; letter-spacing: -.025em; }
-.cloud-frame { display: grid; justify-items: center; padding: 24px; border: 1px dashed #41526a; background: #0a111c; }
-.internet-node, .service-node, .az-grid div { min-height: 44px; display: grid; place-items: center; border: 1px solid #3a4b62; background: var(--surface-2); font-size: .72rem; font-weight: 700; text-align: center; }
+.cloud-frame { display: grid; justify-items: center; padding: 18px; border: 1px dashed #41526a; background: #0a111c; }
+.internet-node, .service-node, .compute-pair div, .database-pair div { min-height: 38px; display: grid; place-items: center; border: 1px solid #3a4b62; background: var(--surface-2); font-size: .65rem; font-weight: 700; text-align: center; }
 .internet-node { width: 100px; border-radius: 30px; }
-.connector { width: 1px; height: 22px; background: #53657d; }
-.accent-node { width: 100%; border-color: var(--accent); color: var(--accent-soft); }
-.az-grid, .data-grid { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
-.az-grid div { min-height: 72px; align-content: center; gap: 2px; }
-.az-grid small { color: #72829a; font-size: .56rem; letter-spacing: .12em; }
-.data-grid .service-node { min-height: 46px; }
+.flow-arrow { height: 22px; display: grid; place-items: center; color: #65768d; font-size: .75rem; }
+.traffic-paths { width: 100%; display: grid; grid-template-columns: 1.55fr .75fr; gap: 10px; }
+.traffic-lane { min-width: 0; padding: 10px; border: 1px solid #26374d; background: rgba(19,30,47,.38); }
+.lane-label { display: block; margin-bottom: 9px; color: #74849b; font-size: .48rem; font-weight: 800; letter-spacing: .1em; text-align: center; }
+.service-node { width: 100%; padding: 5px; }
+.accent-node { border-color: var(--accent); color: var(--accent-soft); }
+.compute-pair { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.compute-pair div { min-height: 52px; align-content: center; gap: 1px; padding: 4px; }
+.compute-pair small, .database-pair small { color: #72829a; font-size: .45rem; letter-spacing: .08em; }
+.compute-pair span, .database-pair span { font-size: .55rem; }
+.asg-label { display: block; margin-top: 5px; color: #697991; font-size: .43rem; font-weight: 700; letter-spacing: .05em; text-align: center; }
+.database-pair { display: grid; grid-template-columns: 1fr 16px 1fr; align-items: center; }
+.database-pair div { min-height: 45px; align-content: center; gap: 1px; padding: 3px; }
+.database-pair > span { color: var(--accent); font-size: .7rem; text-align: center; }
+.static-lane .service-node { min-height: 50px; }
 .architecture-card > p { margin: 22px 0 0; color: #8e9bb0; font-size: .77rem; line-height: 1.6; }
 .architecture-link { display: inline-block; margin-top: 16px; color: var(--accent); font-size: .75rem; font-weight: 750; text-decoration: none; }
 .architecture-link:hover { text-decoration: underline; text-underline-offset: 4px; }

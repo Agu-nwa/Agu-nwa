@@ -52,18 +52,37 @@
           <h2 class="architecture-title">Highly Available AWS Web Architecture</h2>
           <div class="cloud-frame">
             <div class="internet-node">Users</div>
-            <span class="connector" aria-hidden="true"></span>
-            <div class="service-node accent-node">Application Load Balancer</div>
-            <div class="az-grid">
-              <div><small>AZ A</small><span>EC2</span></div>
-              <div><small>AZ B</small><span>EC2</span></div>
-            </div>
-            <div class="data-grid">
-              <div class="service-node">RDS</div>
-              <div class="service-node">S3</div>
+            <span class="flow-arrow" aria-hidden="true">↓</span>
+            <div class="traffic-paths">
+              <div class="traffic-lane dynamic-lane">
+                <small class="lane-label">DYNAMIC TRAFFIC</small>
+                <div class="service-node accent-node">Application Load Balancer</div>
+                <span class="flow-arrow" aria-hidden="true">↓</span>
+                <div class="service-node">Target Group</div>
+                <span class="flow-arrow" aria-hidden="true">↓</span>
+                <div class="compute-pair">
+                  <div><small>AZ A</small><span>EC2 + Nginx</span></div>
+                  <div><small>AZ B</small><span>EC2 + Nginx</span></div>
+                </div>
+                <span class="asg-label">AUTO SCALING · 2–4 INSTANCES</span>
+                <span class="flow-arrow" aria-hidden="true">↓</span>
+                <div class="service-node">RDS Endpoint</div>
+                <span class="flow-arrow" aria-hidden="true">↓</span>
+                <div class="database-pair">
+                  <div><small>PRIMARY</small><span>PostgreSQL</span></div>
+                  <span aria-label="Synchronous replication">⇄</span>
+                  <div><small>STANDBY</small><span>PostgreSQL</span></div>
+                </div>
+              </div>
+              <div class="traffic-lane static-lane">
+                <small class="lane-label">STATIC CONTENT</small>
+                <div class="service-node">CloudFront</div>
+                <span class="flow-arrow" aria-hidden="true">↓</span>
+                <div class="service-node">Private S3</div>
+              </div>
             </div>
           </div>
-          <p>Traffic distribution, elastic compute, managed data, and fault isolation across Availability Zones.</p>
+          <p>Two traffic paths, multi-AZ compute, automatic replacement, and PostgreSQL failover.</p>
           <a class="architecture-link" href="https://github.com/Agu-nwa/-aws-ha-arch" target="_blank" rel="noreferrer">View project <span aria-hidden="true">↗</span></a>
         </aside>
       </div>
