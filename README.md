@@ -32,23 +32,58 @@ A highly available web architecture running across two Availability Zones, with 
 <summary><strong>View architecture diagram</strong></summary>
 
 ```mermaid
-flowchart TB
-    Users([Internet Users]) --> ALB[Application Load Balancer]
-    Users --> CF[Amazon CloudFront]
-    CF --> S3[(Private Amazon S3 Bucket)]
-    subgraph VPC[Amazon VPC - 10.0.0.0/16]
-        ALB --> TG[Target Group]
-        subgraph ASG[Auto Scaling Group - Min 2 / Max 4]
-            EC2A[EC2 + Nginx - AZ A]
-            EC2B[EC2 + Nginx - AZ B]
+flowchart LR
+    Users([Internet users])
+
+    subgraph AWS["AWS Cloud"]
+        direction LR
+        CF[CloudFront]
+        S3[(Private S3 bucket)]
+
+        subgraph VPC["VPC · 10.0.0.0/16"]
+            direction TB
+            ALB[Application Load Balancer]
+            TG[Target group]
+
+            subgraph ASG["Auto Scaling group · 2–4 instances"]
+                direction LR
+                subgraph AZA["Availability Zone A"]
+                    EC2A[EC2 · Nginx]
+                end
+                subgraph AZB["Availability Zone B"]
+                    EC2B[EC2 · Nginx]
+                end
+            end
+
+            Endpoint[RDS endpoint]
+            Primary[(PostgreSQL primary)]
+            Standby[(PostgreSQL standby)]
         end
-        TG --> EC2A
-        TG --> EC2B
-        EC2A --> Endpoint[RDS Endpoint]
-        EC2B --> Endpoint
-        Endpoint --> Primary[(RDS PostgreSQL Primary)]
-        Primary -. Synchronous replication .-> Standby[(RDS PostgreSQL Standby)]
     end
+
+    Users -->|Dynamic traffic| ALB
+    ALB -->|Health-checked requests| TG
+    TG --> EC2A & EC2B
+    EC2A & EC2B --> Endpoint
+    Endpoint --> Primary
+    Primary -. Synchronous replication .-> Standby
+
+    Users -->|Static content| CF
+    CF -->|Origin access| S3
+
+    classDef external fill:#f8fafc,stroke:#2563eb,color:#0b1f33,stroke-width:2px;
+    classDef aws fill:#102a43,stroke:#ff9900,color:#f8fafc,stroke-width:2px;
+    classDef compute fill:#163a59,stroke:#7dd3fc,color:#f8fafc;
+    classDef data fill:#0b1f33,stroke:#7dd3fc,color:#f8fafc;
+    class Users external;
+    class ALB,TG,CF,S3 aws;
+    class EC2A,EC2B compute;
+    class Endpoint,Primary,Standby data;
+    style AWS fill:#0b1f33,stroke:#29445d,color:#f8fafc
+    style VPC fill:#102a43,stroke:#7dd3fc,color:#f8fafc
+    style ASG fill:#0b1f33,stroke:#2563eb,color:#f8fafc
+    style AZA fill:#102a43,stroke:#29445d,color:#f8fafc
+    style AZB fill:#102a43,stroke:#29445d,color:#f8fafc
 ```
 
 </details>
@@ -67,11 +102,34 @@ An Ubuntu web server deployed on Amazon EC2 and configured to serve a web page w
 
 ```mermaid
 flowchart LR
-    Visitor([Website Visitor]) -->|HTTP| SG[Security Group]
-    Admin([Administrator]) -->|SSH| SG
-    SG --> EC2[Ubuntu EC2 Instance]
-    EC2 --> Nginx[Nginx Web Server]
-    Nginx --> Page[Hosted Web Page]
+    Visitor([Website visitor]) -->|HTTP · port 80| WebRule[HTTP rule]
+    Admin([Administrator]) -->|SSH · port 22| SSHRule[Restricted SSH rule]
+
+    subgraph AWS["AWS Cloud"]
+        subgraph SG["Security group"]
+            WebRule
+            SSHRule
+        end
+        subgraph EC2["Ubuntu EC2 instance"]
+            Nginx[Nginx service]
+            Content[Deployed web content]
+            Nginx --> Content
+        end
+    end
+
+    WebRule --> Nginx
+    SSHRule -->|Key-based access| EC2
+    Content -->|HTTP response| Visitor
+
+    classDef external fill:#f8fafc,stroke:#2563eb,color:#0b1f33,stroke-width:2px;
+    classDef control fill:#102a43,stroke:#7dd3fc,color:#f8fafc;
+    classDef aws fill:#163a59,stroke:#ff9900,color:#f8fafc;
+    class Visitor,Admin external;
+    class WebRule,SSHRule control;
+    class Nginx,Content aws;
+    style AWS fill:#0b1f33,stroke:#29445d,color:#f8fafc
+    style SG fill:#102a43,stroke:#7dd3fc,color:#f8fafc
+    style EC2 fill:#102a43,stroke:#ff9900,color:#f8fafc
 ```
 
 </details>
@@ -89,18 +147,32 @@ A documented assessment of an Ubuntu EC2 server used to understand its current s
 <summary><strong>View assessment flow</strong></summary>
 
 ```mermaid
-flowchart TB
-    Admin([Administrator]) -->|SSH with key| EC2[Ubuntu Server on EC2]
-    EC2 --> Identity[User, hostname & OS]
-    EC2 --> Resources[Disk, memory & uptime]
-    EC2 --> System[Kernel, architecture & packages]
-    EC2 --> Files[Filesystem & configuration]
-    EC2 --> Logs[System log review]
-    Identity --> Report[Baseline Summary]
-    Resources --> Report
-    System --> Report
-    Files --> Report
-    Logs --> Report
+flowchart LR
+    Admin([Administrator]) -->|Key-based SSH| Server[Ubuntu server on EC2]
+
+    Server --> Discover
+
+    subgraph Discover["Read-only discovery"]
+        direction TB
+        Identity[Identity · hostname · OS]
+        Capacity[CPU · memory · disk · uptime]
+        Software[Kernel · architecture · packages]
+        Runtime[Processes · services · network]
+        Evidence[Filesystem · configuration · logs]
+    end
+
+    Identity & Capacity & Software & Runtime & Evidence --> Baseline[Baseline report]
+    Baseline --> Next[Prioritized next actions]
+
+    classDef external fill:#f8fafc,stroke:#2563eb,color:#0b1f33,stroke-width:2px;
+    classDef system fill:#102a43,stroke:#ff9900,color:#f8fafc,stroke-width:2px;
+    classDef inspect fill:#163a59,stroke:#7dd3fc,color:#f8fafc;
+    classDef output fill:#2563eb,stroke:#7dd3fc,color:#f8fafc,stroke-width:2px;
+    class Admin external;
+    class Server system;
+    class Identity,Capacity,Software,Runtime,Evidence inspect;
+    class Baseline,Next output;
+    style Discover fill:#0b1f33,stroke:#29445d,color:#f8fafc
 ```
 
 </details>
