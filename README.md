@@ -29,25 +29,25 @@ I designed a web architecture that runs across two Availability Zones so it can 
 
 ```mermaid
 flowchart TB
-    Users([Users]) --> ALB[Application Load Balancer]
-    subgraph VPC[Amazon VPC]
-        direction TB
-        ALB --> ASG[Auto Scaling Group]
-        subgraph AZA[Availability Zone A]
-            EC2A[EC2 Application Server]
+    Users([Internet Users]) --> ALB[Application Load Balancer]
+    Users --> CF[Amazon CloudFront]
+    CF --> S3[(Private Amazon S3 Bucket)]
+    subgraph VPC[Amazon VPC - 10.0.0.0/16]
+        ALB --> TG[Target Group]
+        subgraph ASG[Auto Scaling Group - Min 2 / Max 4]
+            EC2A[EC2 + Nginx - AZ A]
+            EC2B[EC2 + Nginx - AZ B]
         end
-        subgraph AZB[Availability Zone B]
-            EC2B[EC2 Application Server]
-        end
-        ASG --> EC2A
-        ASG --> EC2B
-        EC2A --> RDS[(Amazon RDS)]
-        EC2B --> RDS
-        EC2A --> S3[(Amazon S3)]
-        EC2B --> S3
+        TG --> EC2A
+        TG --> EC2B
+        EC2A --> Endpoint[RDS Endpoint]
+        EC2B --> Endpoint
+        Endpoint --> Primary[(RDS PostgreSQL Primary)]
+        Primary -. Synchronous replication .-> Standby[(RDS PostgreSQL Standby)]
     end
-    IAM[IAM & Security Groups] -. controls access .-> VPC
 ```
+
+[View the full architecture and traffic flow](https://github.com/Agu-nwa/-aws-ha-arch/blob/main/architecture/architecture.md)
 
 ### 2. [AWS EC2 + Nginx Web Server](https://github.com/Agu-nwa/AWS-Personal-Project)
 
